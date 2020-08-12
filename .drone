@@ -39,7 +39,7 @@ clone() {
     #mkdir aarch64-linux-android-4.9
     #tar -zxf 961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz -C aarch64-linux-android-4.9
     git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 /drone/GCC
-    git clone https://github.com/Boos4721/AnyKernel3.git ~/$ZIP
+    git clone https://github.com/ChenZesen/AnyKernel-Pro2.git ~/$ZIP
     ls
     }
     
