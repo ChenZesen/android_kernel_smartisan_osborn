@@ -6,7 +6,9 @@
 export ARCH=arm64
 export SUBARCH=arm64
 export HOME=/drone
-sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+rm /etc/localtime
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+ntpdate -u ntp.api.bz
 date
 
 ############################################################
