@@ -6,7 +6,7 @@
 export ARCH=arm64
 export SUBARCH=arm64
 export HOME=/drone
-ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 date
 
 ############################################################
