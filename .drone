@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Kernel CI Builder
-# Copyright (C) 2019 @Boos472(Telegram and Github)  
+# Copyright (C)  
 # Default Settings
 export ARCH=arm64
 export SUBARCH=arm64
@@ -17,8 +17,7 @@ ZIP="AnyKernel3"
 CONFIG_FILE="osborn_defconfig"
 DEVELOPER="Da"
 HOST="diao"
-#OUTFILE="/drone/src/out/arch/arm64/boot/Image.gz-dtb"
-OUTFILE="/drone/src/README"
+OUTFILE="/drone/src/out/arch/arm64/boot/Image.gz-dtb"
 CLANG="gcc"
 DATE="`date +"%m%d-%H%S"`"
 QWQ="-j$(grep -c ^processor /proc/cpuinfo)"
@@ -49,6 +48,7 @@ compile() {
     PATH="${TOOLDIR}/$CLANG/bin:${PATH}" \
     make $QWQ O="out" \
     ARCH=arm64 \
+    C++=gcc \
     CLANG_TRIPLE+=aarch64-linux-gnu- \
     CROSS_COMPILE+=aarch64-linux-gnu- \
     CROSS_COMPILE_ARM32+=arm-linux-gnueabi- \
@@ -77,7 +77,7 @@ EOF
 }
 
 hub() {
-   mkdir -p ~/$NAME/$NAME && mv $OUTFILE ~/$NAME/$NAME/
+   mkdir -p ~/$NAME/$NAME && mv -f ~/$ZIP/*.zip ~/$NAME/$NAME/
    cd  ~/$NAME
    git init
    git remote add origin https://$id:$ss@gitee.com/CHENZESEN/kernel.git
@@ -90,8 +90,8 @@ hub() {
 config
 clean
 clone
-#compile
-#makezip
+compile
+makezip
 #sf
 hub
 
