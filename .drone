@@ -6,9 +6,7 @@
 export ARCH=arm64
 export SUBARCH=arm64
 export HOME=/drone
-ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-ls /proc/sys/
-echo 1 > /proc/sys/vm/independent_wallclock
+timedatectl set-timezone Asia/Shanghai
 date
 
 ############################################################
