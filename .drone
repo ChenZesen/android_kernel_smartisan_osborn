@@ -38,7 +38,7 @@ clone() {
     #wget -c https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz
     #mkdir aarch64-linux-android-4.9
     #tar -zxf 961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz -C aarch64-linux-android-4.9
-    git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 /drone/GCC
+    git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9
     git clone https://github.com/ChenZesen/AnyKernel-Pro2.git ~/$ZIP
     ls
     }
@@ -47,7 +47,7 @@ compile() {
     echo " $NAME With Clang.."
     echo " $NAME Starting first build.."
     BUILD_START=$(date +"%s")
-    export PATH=$PATH:/drone/GCC/bin/
+    export PATH=$PATH:/drone/src/aarch64-linux-android-4.9/bin/
     export CROSS_COMPILE=aarch64-linux-android-
     make ARCH=arm64 O="out" "${CONFIG_FILE}"
     make $QWQ O="out" \
