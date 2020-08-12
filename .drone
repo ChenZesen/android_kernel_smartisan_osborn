@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Kernel CI Builder
-# Copyright (C) 2019 @Boos4721(Telegram and Github)  
+# Copyright (C) 2019 @Boos472(Telegram and Github)  
 # Default Settings
 export ARCH=arm64
 export SUBARCH=arm64
