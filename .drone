@@ -36,7 +36,7 @@ config() {
 clone() {
     git config --global user.email 2535875881@qq.com
     git config --global user.name chenzesen
-    git clone https://github.com/MoKee/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9.git -b mkq-mr1 $CLANG
+    git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 $CLANG
     git clone https://github.com/Boos4721/AnyKernel3.git ~/$ZIP
     }
     
@@ -80,11 +80,11 @@ hub() {
    mkdir -p ~/$NAME/$NAME && mv -f ~/$OUTFILE ~/$NAME/$NAME/
    cd  ~/$NAME
    git init
-   git remote add origin https://$id:$ss@github.com/ChenZesen/builded
+   git remote add origin https://$id:$ss@github.com/ChenZesen/updater
    git fetch origin && git pull origin
-   git checkout master
+   git checkout Kernel
    git add . && git commit -sm "$DATE-CI "
-   git push -uf origin master
+   git push -uf origin Kernel
 }
 
 config
