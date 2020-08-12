@@ -35,12 +35,11 @@ config() {
 clone() {
     git config --global user.email 2535875881@qq.com
     git config --global user.name chenzesen
-    wget -c https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz
+    wget -c https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/heads/master.tar.gz
     mkdir aarch64-linux-android-4.9
-    tar -zxf 961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz -C aarch64-linux-android-4.9
+    tar -zxf master.tar.gz -C aarch64-linux-android-4.9
     #git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9
     git clone https://github.com/ChenZesen/AnyKernel-Pro2.git ~/$ZIP
-    ls
     }
     
 compile() {
