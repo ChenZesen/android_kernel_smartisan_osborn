@@ -80,7 +80,7 @@ hub() {
    mkdir -p ~/$NAME/$NAME && mv -f ~/$OUTFILE ~/$NAME/$NAME/
    cd  ~/$NAME
    git init
-   git remote add origin https://$id:$ss@git@gitee.com:CHENZESEN/kernel.git
+   git remote add origin https://$id:$ss@gitee.com/CHENZESEN/kernel.git
    git fetch origin && git pull origin
    git checkout master
    git add . && git commit -sm "$DATE-CI "
@@ -90,7 +90,7 @@ hub() {
 config
 clean
 clone
-compile
+#compile
 #makezip
 #sf
 hub
