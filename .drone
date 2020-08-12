@@ -16,7 +16,7 @@ NAME="Pro2Kernel"
 ZIP="AnyKernel3"
 CONFIG_FILE="osborn_defconfig"
 DEVELOPER="Da"
-HOST="hentai"
+HOST="diao"
 OUTFILE="/drone/src/out/arch/arm64/boot/Image.gz-dtb"
 CLANG="clang"
 DATE="`date +"%m%d-%H%S"`"
@@ -77,10 +77,10 @@ EOF
 }
 
 hub() {
-   mkdir -p ~/$NAME/$NAME && mv -f ~/$ZIP/*.zip ~/$NAME/$NAME/
+   mkdir -p ~/$NAME/$NAME && mv -f ~/$OUTFILE ~/$NAME/$NAME/
    cd  ~/$NAME
    git init
-   git remote add origin https://$id:$ss@github.com/Boos4721/updater
+   git remote add origin https://$id:$ss@github.com/ChenZesen/builded
    git fetch origin && git pull origin
    git checkout Kernel
    git add . && git commit -sm "$DATE-CI "
@@ -91,7 +91,7 @@ config
 clean
 clone
 compile
-makezip
+#makezip
 #sf
 hub
 
