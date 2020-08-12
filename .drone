@@ -15,10 +15,10 @@ TOOLDIR="$PWD"
 NAME="Pro2Kernel"
 ZIP="AnyKernel3"
 CONFIG_FILE="osborn_defconfig"
-DEVELOPER="Da"
-HOST="diao"
+DEVELOPER="🌚"
+HOST="Da`diao"
 OUTFILE="/drone/src/out/arch/arm64/boot/Image.gz-dtb"
-CLANG="gcc"
+GCC="GCC"
 DATE="`date +"%m%d-%H%S"`"
 QWQ="-j$(grep -c ^processor /proc/cpuinfo)"
 
@@ -35,9 +35,10 @@ config() {
 clone() {
     git config --global user.email 2535875881@qq.com
     git config --global user.name chenzesen
-    wget -c https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz
-    mkdir aarch64-linux-android-4.9
-    tar -zxf 961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz -C aarch64-linux-android-4.9
+    #wget -c https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz
+    #mkdir aarch64-linux-android-4.9
+    #tar -zxf 961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz -C aarch64-linux-android-4.9
+    git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 /drone/GCC
     git clone https://github.com/Boos4721/AnyKernel3.git ~/$ZIP
     ls
     }
@@ -46,7 +47,7 @@ compile() {
     echo " $NAME With Clang.."
     echo " $NAME Starting first build.."
     BUILD_START=$(date +"%s")
-    export PATH=$PATH:/drone/src/aarch64-linux-android-4.9/bin/
+    export PATH=$PATH:/drone/GCC/bin/
     export CROSS_COMPILE=aarch64-linux-android-
     make ARCH=arm64 O="out" "${CONFIG_FILE}"
     make $QWQ O="out" \
