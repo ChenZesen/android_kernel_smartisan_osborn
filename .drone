@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Kernel CI Builder
-# Copyright (C)  
+# Copyright (C) chen
 # Default Settings
 export ARCH=arm64
 export SUBARCH=arm64
