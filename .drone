@@ -48,10 +48,8 @@ compile() {
     PATH="${TOOLDIR}/$CLANG/bin:${PATH}" \
     make $QWQ O="out" \
     ARCH=arm64 \
-    C++=gcc \
-    CLANG_TRIPLE+=aarch64-linux-gnu- \
-    CROSS_COMPILE+=aarch64-linux-gnu- \
-    CROSS_COMPILE_ARM32+=arm-linux-gnueabi- \
+    SUBARCH=arm64 \
+    CROSS_COMPILE=aarch64-linux-android- \
     KBUILD_BUILD_USER="${DEVELOPER}" \
     KBUILD_BUILD_HOST="${HOST}" 
     echo " $NAME Build complete!"
