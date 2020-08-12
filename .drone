@@ -35,7 +35,7 @@ config() {
 clone() {
     git config --global user.email 2535875881@qq.com
     git config --global user.name chenzesen
-    git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 $CLANG
+    git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9
     git clone https://github.com/Boos4721/AnyKernel3.git ~/$ZIP
     pwd
     }
@@ -44,13 +44,12 @@ compile() {
     echo " $NAME With Clang.."
     echo " $NAME Starting first build.."
     BUILD_START=$(date +"%s")
-    export LD_LIBRARY_PATH="${TOOLDIR}/$CLANG/bin/../lib:$PATH" 
+    export PATH=$PATH:$PWD/aarch64-linux-android-4.9/bin/
+    export CROSS_COMPILE=aarch64-linux-android-
     make ARCH=arm64 O="out" "${CONFIG_FILE}"
-    PATH="${TOOLDIR}/$CLANG/bin:${PATH}" \
     make $QWQ O="out" \
     ARCH=arm64 \
     SUBARCH=arm64 \
-    CROSS_COMPILE=aarch64-linux-android- \
     KBUILD_BUILD_USER="${DEVELOPER}" \
     KBUILD_BUILD_HOST="${HOST}" 
     echo " $NAME Build complete!"
@@ -89,10 +88,10 @@ hub() {
 config
 clean
 clone
-#compile
-#makezip
+compile
+makezip
 #sf
-#hub
+hub
 
     DIFF=$(($BUILD_END - $BUILD_START))
     echo "Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds"
