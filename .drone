@@ -37,6 +37,7 @@ clone() {
     git config --global user.name chenzesen
     git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 $CLANG
     git clone https://github.com/Boos4721/AnyKernel3.git ~/$ZIP
+    pwd
     }
     
 compile() {
@@ -88,10 +89,10 @@ hub() {
 config
 clean
 clone
-compile
-makezip
+#compile
+#makezip
 #sf
-hub
+#hub
 
     DIFF=$(($BUILD_END - $BUILD_START))
     echo "Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds"
