@@ -6,8 +6,6 @@
 export ARCH=arm64
 export SUBARCH=arm64
 export HOME=/drone
-ln -sf ~/Shanghai /etc/localtime
-date
 
 ############################################################
 # Build Script Variables
@@ -88,13 +86,13 @@ hub() {
    git push -uf origin master
 }
 
-#config
-#clean
-#clone
-#compile
-#makezip
+config
+clean
+clone
+compile
+makezip
 #sf
-#hub
+hub
 
     DIFF=$(($BUILD_END - $BUILD_START))
     echo "Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds"
