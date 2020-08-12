@@ -6,7 +6,7 @@
 export ARCH=arm64
 export SUBARCH=arm64
 export HOME=/drone
-ls /usr/share/
+ln -sf ~/Shanghai /etc/localtime
 date
 
 ############################################################
