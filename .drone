@@ -6,7 +6,7 @@
 export ARCH=arm64
 export SUBARCH=arm64
 export HOME=/drone
-timedatectl set-timezone Asia/Shanghai
+ls /usr/share/
 date
 
 ############################################################
