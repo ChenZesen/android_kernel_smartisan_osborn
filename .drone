@@ -18,7 +18,7 @@ CONFIG_FILE="osborn_defconfig"
 DEVELOPER="Da"
 HOST="diao"
 OUTFILE="/drone/src/out/arch/arm64/boot/Image.gz-dtb"
-CLANG="clang"
+CLANG="gcc"
 DATE="`date +"%m%d-%H%S"`"
 QWQ="-j$(grep -c ^processor /proc/cpuinfo)"
 
@@ -33,9 +33,9 @@ config() {
 }
 
 clone() {
-    git config --global user.email 3.1415926535boos@gmail.com
-    git config --global user.name boos4721
-    git clone https://github.com/Boos4721/clang.git $CLANG
+    git config --global user.email 2535875881@qq.com
+    git config --global user.name chenzesen
+    git clone https://github.com/MoKee/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9.git -b mkq-mr1 $CLANG
     git clone https://github.com/Boos4721/AnyKernel3.git ~/$ZIP
     }
     
@@ -48,7 +48,6 @@ compile() {
     PATH="${TOOLDIR}/$CLANG/bin:${PATH}" \
     make $QWQ O="out" \
     ARCH=arm64 \
-    CC+=clang \
     CLANG_TRIPLE+=aarch64-linux-gnu- \
     CROSS_COMPILE+=aarch64-linux-gnu- \
     CROSS_COMPILE_ARM32+=arm-linux-gnueabi- \
