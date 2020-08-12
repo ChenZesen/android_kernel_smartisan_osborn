@@ -29,15 +29,17 @@ clean(){
 
 config() {
        apt-get update
-       apt-get install -y build-essential bc python curl git zip ftp gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi libssl-dev lftp zstd wget libfl-dev gcc-aarch64-linux-gnu
+       apt-get install -y build-essential bc python curl git zip ftp libssl-dev lftp zstd wget libfl-dev
 }
 
 clone() {
     git config --global user.email 2535875881@qq.com
     git config --global user.name chenzesen
-    git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9
+    wget -c https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz
+    mkdir aarch64-linux-android-4.9
+    tar -zxf 961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz -C aarch64-linux-android-4.9
     git clone https://github.com/Boos4721/AnyKernel3.git ~/$ZIP
-    pwd
+    ls
     }
     
 compile() {
